@@ -1,0 +1,21 @@
+[package]
+name = "client_sample"
+version = "0.1.0"
+edition = "2021"
+authors = ["Christopher Vella <cvella@signal-labs.com>"]
+
+[dependencies]
+interceptor = { path = "../../interceptor" }
+
+[dependencies.windows]
+version = "0.54.0"
+features = [
+    "Data_Xml_Dom",
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_System_Threading",
+    "Win32_System",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Memory",
+    "Win32_System_SystemInformation"
+]

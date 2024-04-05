@@ -1,0 +1,6 @@
+[package]
+name = "interceptor"
+version = "0.1.0"
+edition = "2021"
+authors = ["Christopher Vella <cvella@signal-labs.com>"]
+[dependencies]
