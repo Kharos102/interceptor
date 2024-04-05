@@ -95,6 +95,8 @@ pub struct InlineHook {
     new_bytes: Vec<u8>,
     #[cfg(target_arch = "x86")]
     jmp_buffer: Pin<Box<[u8; 4]>>,
+    #[cfg(target_arch = "x86")]
+    _phantom_pinned: core::marker::PhantomPinned,
 }
 
 impl InlineHook {
@@ -140,6 +142,8 @@ impl InlineHook {
             new_bytes: vec![],
             #[cfg(target_arch = "x86")]
             jmp_buffer: Box::pin([0; 4]),
+            #[cfg(target_arch = "x86")]
+            _phantom_pinned: core::marker::PhantomPinned,
         };
         let jmp = self_tmp.create_jmp(new_address);
         let original_bytes = try_read_atomic(ReadRequest {
